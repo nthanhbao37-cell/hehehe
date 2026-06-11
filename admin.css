@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-start: #100428;
+  --bg-end: #040212;
+  --panel: rgba(20, 12, 40, 0.92);
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --panel-border-strong: rgba(255, 126, 179, 0.4);
+  --text-primary: #f8f7ff;
+  --text-secondary: #d6c9e3;
+  --text-muted: #9b8fa8;
+  --accent: #ff8ac0;
+  --accent-dark: #d84b8f;
+  --radius: 26px;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  --transition: 0.25s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-primary);
+  background: radial-gradient(circle at top, rgba(255, 138, 192, 0.16), transparent 16%),
+              radial-gradient(circle at 80% 15%, rgba(142, 197, 255, 0.14), transparent 18%),
+              linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  padding: 30px 18px 48px;
+  display: flex;
+  justify-content: center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.45) 1px, transparent 1px);
+  background-size: 100px 100px;
+  opacity: 0.16;
+}
+
+body > header,
+body > nav,
+body > div {
+  width: min(100%, 1080px);
+}
+
+header {
+  margin-bottom: 26px;
+  padding: 34px 30px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+header h1 {
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 1.05;
+  text-align: center;
+  color: #fff;
+}
+
+.header-buttons {
+  margin: 30px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  max-width: 940px;
+}
+
+.header-buttons .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.header-buttons .button:hover,
+.header-buttons .button:focus {
+  transform: translateY(-3px);
+  background: rgba(255, 138, 192, 0.22);
+  border-color: var(--panel-border-strong);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(255, 138, 192, 0.14);
+}
+
+nav {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 22px 24px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body > div {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+section {
+  background: var(--panel);
+  border-radius: 32px;
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  padding: 32px;
+  transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+
+section:hover {
+  transform: translateY(-4px);
+  border-color: var(--panel-border-strong);
+  background: rgba(26, 14, 52, 0.96);
+}
+
+section h2 {
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+section p {
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+section p:last-child {
+  margin-bottom: 0;
+}
+
+section a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+section a:hover {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+  body {
+    padding: 24px 14px 40px;
+  }
+
+  header {
+    padding: 28px 22px;
+  }
+
+  .header-buttons .button {
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 20px 12px 32px;
+  }
+
+  header {
+    padding: 24px 18px;
+  }
+
+  .header-buttons {
+    gap: 10px;
+  }
+
+  nav {
+    padding: 18px 16px;
+  }
+
+  section {
+    padding: 24px;
+  }
+}

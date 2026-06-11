@@ -1,0 +1,206 @@
+/* Galaxy Neon Info Page */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-start: #120326;
+  --bg-end: #04010e;
+  --star: #ffffff;
+  --glass: rgba(18, 8, 30, 0.72);
+  --glass-border: rgba(255, 126, 179, 0.22);
+  --text-primary: #f2e9ff;
+  --text-secondary: #cbb8ff;
+  --text-muted: #9a8faf;
+  --accent: #ff7eb3;
+  --accent-strong: #b066ff;
+  --radius: 28px;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(255, 126, 179, 0.16), transparent 12%),
+              radial-gradient(circle at 80% 10%, rgba(142, 197, 255, 0.14), transparent 16%),
+              linear-gradient(180deg, var(--bg-start), var(--bg-end));
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  padding: 28px 18px 40px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 0),
+                    radial-gradient(circle, rgba(255,255,255,0.55) 1px, transparent 0),
+                    radial-gradient(circle, rgba(255,255,255,0.35) 1px, transparent 0);
+  background-size: 120px 120px, 180px 180px, 280px 280px;
+  background-position: 24px 30px, 100px 90px, 230px 140px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.uia,
+.thongtin {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1080px);
+  margin: 0 auto 26px;
+  padding: 32px 32px 30px;
+  border-radius: var(--radius);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.uia {
+  text-align: center;
+}
+
+.header-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px auto 22px;
+  max-width: 1000px;
+}
+
+.header-buttons .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.header-buttons .button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,126,179,0.24);
+  border-color: rgba(255,126,179,0.4);
+}
+
+.uia h1 {
+  font-size: clamp(2.25rem, 5vw, 3.6rem);
+  letter-spacing: -0.04em;
+  color: var(--accent);
+  text-shadow: 0 0 18px rgba(255, 126, 179, 0.35);
+}
+
+.thongtin h1,
+.thongtin h2,
+.thongtin h3,
+.thongtin h4,
+.thongtin h5 {
+  color: #f8f3ff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.thongtin h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.thongtin h2 {
+  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding-bottom: 10px;
+}
+
+.thongtin h3,
+.thongtin h4,
+.thongtin h5 {
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+}
+
+.thongtin p {
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 20px;
+  white-space: pre-line;
+}
+
+.thongtin b {
+  color: var(--accent);
+}
+
+.muc1,
+.muc2,
+.muc3 {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 22px;
+  background: rgba(15, 7, 32, 0.78);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.muc2 {
+  display: grid;
+  gap: 18px;
+}
+
+.muc2 img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-top: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(176, 102, 255, 0.45);
+}
+
+@media (max-width: 840px) {
+  body {
+    padding: 22px 12px 36px;
+  }
+
+  .uia,
+  .thongtin {
+    padding: 26px 22px;
+  }
+}
+
+@media (max-width: 620px) {
+  .uia h1 {
+    font-size: 2.3rem;
+  }
+
+  .thongtin h1 {
+    font-size: 2rem;
+  }
+
+  .muc1,
+  .muc2,
+  .muc3 {
+    padding: 18px;
+  }
+}
